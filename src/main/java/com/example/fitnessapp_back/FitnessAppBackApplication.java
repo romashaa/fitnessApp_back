@@ -10,6 +10,7 @@
 
 package com.example.fitnessapp_back;
 
+import com.example.fitnessapp_back.controller.LoginController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
