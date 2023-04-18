@@ -16,7 +16,7 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
     private String name;
     @Column(unique = true)
     private String email;
@@ -28,7 +28,7 @@ public class User implements UserDetails {
     private Goals goal;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List <Meal> meals;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

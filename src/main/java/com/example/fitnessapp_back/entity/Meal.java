@@ -6,22 +6,26 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mealId;
+    private Long id;
     @Enumerated(EnumType.STRING)
     private MealType mealType;
     private LocalDate date;
     private LocalTime time;
     private int grams;
-    @ManyToOne
-    @JoinColumn(name = "dish_dish_id")
+
+    @OneToOne
+    @JoinColumn(name = "dish_id")
     private Dish dish;
+
     @ManyToOne
-    @JoinColumn(name = "user_user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 }

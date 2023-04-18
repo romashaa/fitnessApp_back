@@ -17,11 +17,11 @@ public class InfoService {
     private final MealRepository mealRepository;
 
 
-//1)Порахувати кількість калорій за один прийом їжі(meal)
-public double countMealCalories(Meal meal){
-    double calories = meal.getDish().getCalories()/100;
-    return meal.getGrams()*calories;
-}
+////1)Порахувати кількість калорій за один прийом їжі(meal)
+//public double countMealCalories(Meal meal){
+//    double calories = meal.getDish().getCalories()/100;
+//    return meal.getGrams()*calories;
+//}
 
     //Всі страви за день
     public List<Meal> dayMeals(User user, LocalDate day){
@@ -29,15 +29,15 @@ public double countMealCalories(Meal meal){
     }
 
 //2)Порахувати кількість спожитих калорій за день(по даті)
-    public double countDayEatenCalories(User user, LocalDate date){
-        List<Meal> meals = mealRepository.findByUserAndDate(user, date);
-        double res = 0;
-        for(Meal m: meals){
-            res+=countMealCalories(m);
-        }
-        return res;
-    }
 
+//    public double countDayEatenCalories(User user, LocalDate date){
+//        List<Meal> meals = mealRepository.findByUserAndDate(user, date);
+//        double res = 0;
+//        for(Meal m: meals){
+//            res+=countMealCalories(m);
+//        }
+//        return res;
+//    }
 //3)Знайти денну норму норму калорій
 
 
