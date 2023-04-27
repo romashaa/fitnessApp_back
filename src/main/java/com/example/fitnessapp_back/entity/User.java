@@ -1,7 +1,7 @@
 package com.example.fitnessapp_back.entity;
 
 import com.example.fitnessapp_back.enums.Gender;
-import com.example.fitnessapp_back.enums.Goals;
+import com.example.fitnessapp_back.enums.ActivityLevel;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,8 +24,9 @@ public class User implements UserDetails {
     private double weight;
     private int height;
     private int age;
+    private int caloriesNorm;
     @Enumerated(EnumType.STRING)
-    private Goals goal;
+    private ActivityLevel activityLevel;
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @OneToMany(mappedBy = "user")

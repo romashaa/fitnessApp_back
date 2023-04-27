@@ -1,6 +1,7 @@
 package com.example.fitnessapp_back.entity;
 
 import com.example.fitnessapp_back.enums.MealType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class Meal {
     @JoinColumn(name = "dish_id")
     private Dish dish;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

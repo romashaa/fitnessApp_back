@@ -21,12 +21,19 @@ public class UserController {
         User updateUser = userRepository.findByEmail(email).get();
         updateUser.setAge(userDetails.getAge());
         updateUser.setGender(userDetails.getGender());
-        updateUser.setGoal(userDetails.getGoal());
+        updateUser.setActivityLevel(userDetails.getActivityLevel());
         updateUser.setHeight(userDetails.getHeight());
         updateUser.setWeight(userDetails.getWeight());
 
         userRepository.save(updateUser);
 
+        return ResponseEntity.ok(updateUser);
+    }
+    @PutMapping("/user/{email}/countNorm")
+    public ResponseEntity<User> setCaloriesNorm(@PathVariable String email, @RequestParam int norm){
+        User updateUser = userRepository.findByEmail(email).get();
+        updateUser.setCaloriesNorm(norm);
+        userRepository.save(updateUser);
         return ResponseEntity.ok(updateUser);
     }
 
