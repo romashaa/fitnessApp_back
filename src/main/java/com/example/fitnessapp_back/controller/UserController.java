@@ -1,6 +1,7 @@
 package com.example.fitnessapp_back.controller;
 
 
+import com.example.fitnessapp_back.dto.UserDto;
 import com.example.fitnessapp_back.entity.Meal;
 import com.example.fitnessapp_back.entity.User;
 import com.example.fitnessapp_back.repository.UserRepository;
@@ -41,6 +42,20 @@ public class UserController {
     public User getUser(@PathVariable String email){
         User user = userRepository.findByEmail(email).get();
         return user;
+    }
+    @GetMapping("/userDto/{email}")
+    public UserDto getUserDto(@PathVariable String email){
+        User user = userRepository.findByEmail(email).get();
+        UserDto userDto = new UserDto();
+        userDto.setActivityLevel(user.getActivityLevel());
+        userDto.setAge(user.getAge());
+        userDto.setGender(user.getGender());
+        userDto.setHeight(user.getHeight());
+        userDto.setWeight(user.getWeight());
+        userDto.setEmail(user.getEmail());
+        userDto.setName(user.getName());
+        userDto.setPassword(user.getPassword());
+        return userDto;
     }
 
 }

@@ -25,6 +25,11 @@ public class UserService {
         User newUser = new User();
         newUser.setName(userDto.getName());
         newUser.setEmail(userDto.getEmail());
+        newUser.setActivityLevel(userDto.getActivityLevel());
+        newUser.setWeight(userDto.getWeight());
+        newUser.setHeight(userDto.getHeight());
+        newUser.setGender(userDto.getGender());
+        newUser.setAge(userDto.getAge());
         String encodedPassword = customPasswordEncoder.getPasswordEncoder().encode(userDto.getPassword());
         newUser.setPassword(encodedPassword);
         userRepo.save(newUser);

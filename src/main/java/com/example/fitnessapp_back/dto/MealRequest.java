@@ -1,4 +1,4 @@
-package com.example.fitnessapp_back.entity;
+package com.example.fitnessapp_back.dto;
 
 import com.example.fitnessapp_back.enums.MealType;
 import lombok.Getter;

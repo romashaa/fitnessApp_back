@@ -27,10 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
-
     @Autowired
     private CustomPasswordEncoder passwordEncoder;
-
     @Autowired
     private JwtFilter jwtFilter;
     @Override @Bean

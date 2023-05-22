@@ -31,6 +31,8 @@ public class User implements UserDetails {
     private Gender gender;
     @OneToMany(mappedBy = "user")
     private List <Meal> meals;
+    @OneToMany(mappedBy = "user")
+    private List <Activity> activities;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> roles = new ArrayList<>();

@@ -1,31 +1,24 @@
 package com.example.fitnessapp_back.entity;
 
-import com.example.fitnessapp_back.enums.MealType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data
-public class Meal {
+public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Enumerated(EnumType.STRING)
-    private MealType mealType;
     private LocalDate date;
     private LocalTime time;
-    private int grams;
-
-    @ManyToOne
-    @JoinColumn(name = "dish_id")
-    private Dish dish;
-
+    private int duration;
+    @OneToOne
+    @JoinColumn(name = "sport_id")
+    private Sport sport;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")

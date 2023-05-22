@@ -27,13 +27,6 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
-
-//    public JwtTokenFilter(JwtUtil jwtTokenUtil,
-//                          UserRepository userRepo) {
-//        this.jwtUtil = jwtTokenUtil;
-//        this.userRepository = userRepo;
-//    }
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -57,7 +50,6 @@ public class JwtFilter extends OncePerRequestFilter {
             chain.doFilter(request, response);
             return;
         }
-
         UsernamePasswordAuthenticationToken
                 authentication = new UsernamePasswordAuthenticationToken(
                 userDetails, null,
@@ -68,7 +60,6 @@ public class JwtFilter extends OncePerRequestFilter {
         authentication.setDetails(
                 new WebAuthenticationDetailsSource().buildDetails(request)
         );
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
     }

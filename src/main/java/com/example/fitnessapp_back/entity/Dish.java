@@ -1,5 +1,7 @@
 package com.example.fitnessapp_back.entity;
 
+import com.example.fitnessapp_back.enums.DishCategory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +20,9 @@ public class Dish {
     private double fats;
     private double vuhlevody;
     private int calories;
+    private transient double distance;
+    @Enumerated(EnumType.STRING)
+    private DishCategory dishCategory;
 
 
 }

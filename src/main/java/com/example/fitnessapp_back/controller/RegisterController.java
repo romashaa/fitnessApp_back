@@ -30,26 +30,8 @@ public class RegisterController {
 
     @PostMapping("/register")
     private void createUser(@RequestBody UserDto userDto) {
+        User user = new User();
         userService.createUser(userDto);
-//        try {
-//            Authentication authenticate = authenticationManager
-//                    .authenticate(
-//                            new UsernamePasswordAuthenticationToken(
-//                                    userDto.getName(), userDto.getPassword()
-//                            )
-//                    );
-//
-//            User user = (User) authenticate.getPrincipal();
-//            user.setPassword(null);
-//            return ResponseEntity.ok()
-//                    .header(
-//                            HttpHeaders.AUTHORIZATION,
-//                            jwtUtil.generateToken(user)
-//                    )
-//                    .body(user);
-//        } catch (BadCredentialsException ex) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-//        }
     }
 
 
